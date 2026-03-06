@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>C3 Properties | Premium Property Management — Melbourne, FL</title>
+    <meta name="description" content="C3 Properties — Premium short-term rental management in Melbourne, Florida. AI-powered pricing, automated operations, and exceptional guest experiences. Maximize your property's earning potential.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="C3 Properties | Premium Property Management">
+    <meta property="og:description" content="Maximizing returns through smart automation, dynamic pricing, and exceptional guest experiences.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80">
+    <meta property="og:url" content="https://c3properties.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="C3 Properties | Premium Property Management">
+    <meta name="twitter:description" content="Maximizing returns through smart automation, dynamic pricing, and exceptional guest experiences.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           CSS VARIABLES & DESIGN SYSTEM
+           ========================================= */
+        :root {
+            /* Gold palette */
+            --gold: #D4A843;
+            --gold-dark: #A67C2E;
+            --gold-light: #E8C564;
+
+            /* Dark mode (default) */
+            --bg-body: #050505;
+            --bg-surface: #080808;
+            --bg-card: #121210;
+            --text-primary: #F5F0E8;
+            --text-secondary: #B8B2A6;
+            --text-muted: #706B62;
+            --border: #1A1917;
+            --border-hover: #2A2826;
+
+            /* Layout */
+            --container-width: 1280px;
+            --section-padding: 120px;
+            --nav-height: 80px;
+        }
+
+        /* Light mode overrides */
+        body.light-mode {
+            --bg-body: #FAFAF8;
+            --bg-surface: #F5F0E8;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1917;
+            --text-secondary: #706B62;
+            --text-muted: #B8B2A6;
+            --border: #E8E3D9;
+            --border-hover: #D4CFC3;
+        }
+
+        /* =========================================
+           RESET & BASE
+           ========================================= */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: -0.01em;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        ::selection {
+            background-color: var(--gold);
+            color: #050505;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================================
+           TYPOGRAPHY
+           ========================================= */
+        .font-serif {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #E8C564 0%, #D4A843 45%, #A67C2E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .label-text {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        /* =========================================
+           LAYOUT
+           ========================================= */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: var(--section-padding) 0;
+        }
+
+        /* =========================================
+           GOLD DIVIDER
+           ========================================= */
+        .divider-gold {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--gold-dark) 20%, var(--gold) 50%, var(--gold-dark) 80%, transparent 100%);
+            transform: scaleX(0);
+            transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .divider-gold.visible {
+            transform: scaleX(1);
+        }
+
+        .divider-gold-thin {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.25), transparent);
+        }
+
+        /* =========================================
+           ANIMATION BASE CLASSES
+           ========================================= */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children .stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .stagger-children.visible .stagger-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Word reveal */
+        .word-reveal-wrapper {
+            display: inline;
+        }
+
+        .word-reveal-word {
+            display: inline-block;
+            overflow: hidden;
+            padding-bottom: 0.15em;
+        }
+
+        .word-reveal-inner {
+            display: inline-block;
+            transform: translateY(110%);
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .word-reveal-word.visible .word-reveal-inner {
+            transform: translateY(0%);
+        }
+
+        .word-reveal-space {
+            display: inline-block;
+            width: 0.3em;
+        }
+
+        /* Property image reveal */
+        .image-reveal {
+            clip-path: inset(0 100% 0 0);
+            transition: clip-path 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .image-reveal.visible {
+            clip-path: inset(0 0 0 0);
+        }
+
+        /* =========================================
+           NAVIGATION
+           ========================================= */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav.scrolled {
+            background-color: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom-color: var(--border);
+        }
+
+        body.light-mode .nav.scrolled {
+            background-color: rgba(250, 250, 248, 0.85);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .nav-logo-c3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .nav-logo-properties {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--gold);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--gold);
+            transform: rotate(15deg);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open .bar:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: var(--nav-height);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+            min-height: calc(100vh - var(--nav-height));
+        }
+
+        .hero-content {
+            padding: 60px 0;
+        }
+
+        .hero-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .hero-subheading {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin-bottom: 48px;
+            line-height: 1.7;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image-container {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            max-height: 700px;
+            padding: 16px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-image-frame {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border: 1px solid rgba(212, 168, 67, 0.3);
+            pointer-events: none;
+        }
+
+        /* =========================================
+           BUTTONS
+           ========================================= */
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            background: var(--gold);
+            color: #050505;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 1px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-dark);
+            border-color: var(--gold-dark);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            background: transparent;
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 1px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(212, 168, 67, 0.1);
+            border-color: var(--gold-light);
+            color: var(--gold-light);
+        }
+
+        /* =========================================
+           STATS BAR
+           ========================================= */
+        .stats-bar {
+            padding: 60px 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        /* =========================================
+           ABOUT SECTION
+           ========================================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 32px;
+            transition: all 0.5s ease;
+        }
+
+        .highlight-card:hover {
+            border-color: rgba(212, 168, 67, 0.2);
+            box-shadow: 0 0 30px rgba(212, 168, 67, 0.06);
+            transform: translateY(-4px);
+        }
+
+        .highlight-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .highlight-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           SERVICES SECTION
+           ========================================= */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 40px 32px;
+            transition: all 0.5s ease;
+            cursor: default;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 168, 67, 0.3);
+            box-shadow: 0 0 30px rgba(212, 168, 67, 0.06);
+        }
+
+        .service-icon {
+            margin-bottom: 24px;
+        }
+
+        .service-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           FEATURED PROPERTY
+           ========================================= */
+        .property-section {
+            background: var(--bg-surface);
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .property-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+        }
+
+        .property-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 8px 16px;
+            border: 1px solid rgba(212, 168, 67, 0.2);
+        }
+
+        .property-details h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .property-specs {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .property-specs span {
+            color: var(--text-muted);
+            margin: 0 8px;
+        }
+
+        .amenity-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .amenity-list li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .amenity-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .property-location {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .property-feature {
+            font-size: 0.85rem;
+            color: var(--gold);
+            margin-bottom: 28px;
+        }
+
+        .property-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        /* =========================================
+           PROCESS TIMELINE
+           ========================================= */
+        .process-section {
+            overflow: hidden;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 28px;
+            left: 5%;
+            right: 5%;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .timeline-line-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+            transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .timeline-line.visible .timeline-line-progress {
+            width: 100%;
+        }
+
+        .timeline-step {
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .step-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--bg-body);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            margin: 0 auto 32px;
+            position: relative;
+            z-index: 2;
+            transition: border-color 0.5s ease, background-color 0.5s ease;
+        }
+
+        .timeline-line.visible ~ .timeline-step .step-dot {
+            border-color: var(--gold);
+        }
+
+        .timeline-step.visible .step-dot {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--gold);
+            opacity: 0.3;
+            margin-bottom: 12px;
+        }
+
+        .timeline-step h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .timeline-step p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           TESTIMONIALS
+           ========================================= */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 40px 32px;
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(212, 168, 67, 0.2);
+            box-shadow: 0 0 30px rgba(212, 168, 67, 0.06);
+        }
+
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* =========================================
+           CONTACT SECTION
+           ========================================= */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 0;
+        }
+
+        .contact-form-panel {
+            background: var(--bg-card);
+            padding: 60px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-info-panel {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info-panel h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+        }
+
+        .info-block {
+            margin-bottom: 28px;
+        }
+
+        .info-label {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--gold);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Form styles */
+        .form-group {
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: var(--gold);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23706B62' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0 center;
+        }
+
+        .form-group select option {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-error {
+            font-size: 0.75rem;
+            color: #c05555;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .form-group.error .form-error {
+            display: block;
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-bottom-color: #c05555;
+        }
+
+        /* Honeypot */
+        .form-hp {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 60px 0 30px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: var(--gold);
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 1024px) {
+            :root {
+                --section-padding: 80px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-image-container {
+                height: 50vh;
+                min-height: 300px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .timeline {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+
+            .step-dot {
+                display: none;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 60px;
+                --nav-height: 70px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--bg-body);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.4s ease;
+                z-index: 999;
+            }
+
+            .nav-links.open {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-link {
+                font-size: 1rem;
+                letter-spacing: 0.2em;
+            }
+
+            .hero-heading {
+                font-size: 2.4rem;
+            }
+
+            .hero-subheading {
+                font-size: 1rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .hero-ctas .btn-gold,
+            .hero-ctas .btn-ghost {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-image-frame {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .amenity-list {
+                grid-template-columns: 1fr;
+            }
+
+            .property-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-panel,
+            .contact-info-panel {
+                padding: 40px 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-heading {
+                font-size: 2rem;
+            }
+
+            .stat-value {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         NAVIGATION
+         ========================================= -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a href="#hero" class="nav-logo" aria-label="C3 Properties - Home">
+                <span class="nav-logo-c3">C3</span>
+                <span class="nav-logo-properties">Properties</span>
+            </a>
+
+            <div class="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu" role="button" tabindex="0" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#services" class="nav-link" data-section="services">Services</a>
+                <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a>
+                <a href="#process" class="nav-link" data-section="process">Process</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+                <div class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" role="button" tabindex="0" aria-label="Toggle theme">
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =========================================
+         HERO SECTION
+         ========================================= -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="label-text" style="display:block; margin-bottom: 24px;">Premium Property Management</span>
+
+                    <h1 class="hero-heading" id="hero-heading">
+                        <span class="word-reveal-wrapper" id="hero-words">Where Investment Meets Excellence</span>
+                    </h1>
+
+                    <div class="divider-gold" style="width: 80px; margin-bottom: 24px;" id="hero-divider"></div>
+
+                    <p class="hero-subheading">
+                        Maximizing returns through smart automation, dynamic pricing, and exceptional guest experiences.
+                    </p>
+
+                    <div class="hero-ctas">
+                        <a href="#contact" class="btn-gold">Schedule Assessment</a>
+                        <a href="#portfolio" class="btn-ghost">View Properties</a>
+                    </div>
+                </div>
+
+                <div class="hero-image-container fade-in-up" id="hero-image-block">
+                    <img
+                        src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
+                        alt="Luxury residential property exterior"
+                        class="hero-image"
+                        id="hero-parallax-image"
+                        loading="eager"
+                    >
+                    <div class="hero-image-frame"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         STATS BAR
+         ========================================= -->
+    <section class="stats-bar" aria-label="Key statistics">
+        <div class="container">
+            <div class="stats-grid fade-in-up" id="stats-section">
+                <div>
+                    <div class="stat-value">
+                        <span class="counter" data-target="4.9" data-decimals="1">0</span><span style="font-size:1.4rem; color: var(--text-muted);">/5</span>
+                    </div>
+                    <div class="stat-label">Guest Rating</div>
+                </div>
+                <div>
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Client Support</div>
+                </div>
+                <div>
+                    <div class="stat-value">
+                        <span class="counter" data-target="80" data-decimals="0">0</span><span style="font-size:1.4rem; color: var(--text-muted);">%</span>
+                    </div>
+                    <div class="stat-label">Avg Occupancy</div>
+                </div>
+                <div>
+                    <div class="stat-value">
+                        <span class="counter" data-target="4" data-decimals="0">0</span><span style="font-size:1.4rem; color: var(--text-muted);">+</span>
+                    </div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         ABOUT SECTION
+         ========================================= -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text fade-in-up">
+                    <span class="label-text" style="display:block; margin-bottom: 16px;">The C3 Difference</span>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.15; margin-bottom: 32px; color: var(--text-primary);">
+                        Real Estate,<br>Reimagined
+                    </h2>
+                    <p>
+                        C3 Properties is the real estate arm of Stay Starving Holdings. Backed by licensed Florida Realtors with over four years of experience and three years of hands-on property management, we operate a portfolio of rental properties optimized for maximum cash flow through dynamic pricing, automated guest communication, and smart home technology.
+                    </p>
+                    <p>
+                        Whether you need short-term vacation rental management or long-term tenant placement, our approach combines traditional real estate fundamentals with modern automation. Every property in our portfolio is treated as a business unit with clear KPIs, automated operations, and continuous optimization for peak performance.
+                    </p>
+                </div>
+
+                <div class="about-highlights stagger-children" id="about-highlights">
+                    <div class="highlight-card stagger-item">
+                        <span class="label-text" style="display:block; margin-bottom: 8px; font-size: 0.65rem;">01</span>
+                        <h4>AI-Powered Pricing</h4>
+                        <p>Dynamic algorithms adjust nightly rates in real-time based on demand, seasonality, local events, and competitor analysis to maximize revenue per available night.</p>
+                    </div>
+                    <div class="highlight-card stagger-item">
+                        <span class="label-text" style="display:block; margin-bottom: 8px; font-size: 0.65rem;">02</span>
+                        <h4>Automated Operations</h4>
+                        <p>From guest communication to cleaning coordination, our systems run 24/7 so your property earns while you sleep. Zero missed messages, zero missed bookings.</p>
+                    </div>
+                    <div class="highlight-card stagger-item">
+                        <span class="label-text" style="display:block; margin-bottom: 8px; font-size: 0.65rem;">03</span>
+                        <h4>Premium Guest Experience</h4>
+                        <p>Smart home technology, professional staging, and instant communication create five-star stays that generate repeat bookings and organic referrals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         SERVICES SECTION
+         ========================================= -->
+    <section id="services" class="section-padding" style="background: var(--bg-surface);">
+        <div class="container">
+            <div class="fade-in-up" style="text-align: center; margin-bottom: 60px;">
+                <span class="label-text" style="display:block; margin-bottom: 16px;">What We Offer</span>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.15; color: var(--text-primary);">
+                    Full-Service Property Management
+                </h2>
+            </div>
+
+            <div class="services-grid stagger-children" id="services-grid">
+                <!-- 1. Short-Term Rental Management -->
+                <div class="service-card stagger-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Short-Term &amp; Long-Term Management</h3>
+                    <p>Full-service property management for both short-term vacation rentals and long-term tenants — from Airbnb listing creation to lease management.</p>
+                </div>
+
+                <!-- 2. Dynamic Pricing Optimization -->
+                <div class="service-card stagger-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3>Dynamic Pricing Optimization</h3>
+                    <p>AI-powered pricing algorithms that adjust nightly rates based on demand, seasonality, and local events.</p>
+                </div>
+
+                <!-- 3. Automated Guest Communication -->
+                <div class="service-card stagger-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Automated Guest Communication</h3>
+                    <p>24/7 automated messaging for inquiries, check-in instructions, and review requests.</p>
+                </div>
+
+                <!-- 4. Property Setup & Staging -->
+                <div class="service-card stagger-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Property Setup &amp; Staging</h3>
+                    <p>Transform any property into a revenue-generating short-term rental with professional staging and photography.</p>
+                </div>
+
+                <!-- 5. Smart Home Integration -->
+                <div class="service-card stagger-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Smart Home Integration</h3>
+                    <p>Keypad entry, smart thermostats, automated lighting, and security systems for seamless operations.</p>
+                </div>
+
+                <!-- 6. Market Analysis & Acquisition -->
+                <div class="service-card stagger-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Market Analysis &amp; Acquisition</h3>
+                    <p>Data-driven property analysis to identify high-ROI investment opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         FEATURED PROPERTY
+         ========================================= -->
+    <section id="portfolio" class="section-padding property-section">
+        <div class="container">
+            <div class="fade-in-up" style="text-align: center; margin-bottom: 60px;">
+                <span class="label-text" style="display:block; margin-bottom: 16px;">Featured Property</span>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.15; color: var(--text-primary);">
+                    Our Portfolio
+                </h2>
+            </div>
+
+            <div class="property-grid">
+                <div class="property-image-wrapper image-reveal" id="property-image-reveal">
+                    <img
+                        src="featured-property.png"
+                        alt="Relaxing Melbourne Getaway - Featured rental property"
+                    >
+                    <div class="property-badge">Featured</div>
+                </div>
+
+                <div class="property-details fade-in-up">
+                    <span class="label-text" style="display:block; margin-bottom: 12px;">Melbourne, Florida</span>
+                    <h3>Relaxing Melbourne Getaway</h3>
+                    <div class="property-specs">
+                        3 Bed <span>&middot;</span> 2 Bath <span>&middot;</span> 5 Guests
+                    </div>
+
+                    <ul class="amenity-list">
+                        <li>Full kitchen</li>
+                        <li>Washer &amp; dryer</li>
+                        <li>Fenced backyard</li>
+                        <li>Smart TV</li>
+                        <li>WiFi</li>
+                        <li>Self check-in</li>
+                        <li>Quiet neighborhood</li>
+                    </ul>
+
+                    <div class="property-location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: -2px; margin-right: 4px;">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Melbourne, Florida
+                    </div>
+                    <div class="property-feature">10 minutes from the beach</div>
+
+                    <a href="https://airbnb.com/h/melbournebeachstay" target="_blank" rel="noopener noreferrer" class="btn-gold" style="margin-bottom: 0;">
+                        Book on Airbnb
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+
+                    <div class="property-metrics">
+                        <div class="metric-card">
+                            <div class="metric-value">$145 &ndash; $334</div>
+                            <div class="metric-label">Nightly Rate Range</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">47.3%</div>
+                            <div class="metric-label">Market Occupancy</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">4.9/5</div>
+                            <div class="metric-label">Guest Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         PROCESS TIMELINE
+         ========================================= -->
+    <section id="process" class="section-padding process-section">
+        <div class="container">
+            <div class="fade-in-up" style="text-align: center; margin-bottom: 20px;">
+                <span class="label-text" style="display:block; margin-bottom: 16px;">How It Works</span>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.15; color: var(--text-primary);">
+                    Our Process
+                </h2>
+            </div>
+
+            <div class="timeline" id="timeline">
+                <div class="timeline-line" id="timeline-line">
+                    <div class="timeline-line-progress"></div>
+                </div>
+
+                <div class="timeline-step stagger-item">
+                    <div class="step-dot"></div>
+                    <div class="step-number">01</div>
+                    <h4>Property Assessment</h4>
+                    <p>We analyze your property's earning potential with market data and competitive analysis.</p>
+                </div>
+
+                <div class="timeline-step stagger-item">
+                    <div class="step-dot"></div>
+                    <div class="step-number">02</div>
+                    <h4>Setup &amp; Optimization</h4>
+                    <p>Professional staging, smart home installation, listing creation, and photography.</p>
+                </div>
+
+                <div class="timeline-step stagger-item">
+                    <div class="step-dot"></div>
+                    <div class="step-number">03</div>
+                    <h4>Launch &amp; Manage</h4>
+                    <p>Dynamic pricing activation, automated guest messaging, and 24/7 support coverage.</p>
+                </div>
+
+                <div class="timeline-step stagger-item">
+                    <div class="step-dot"></div>
+                    <div class="step-number">04</div>
+                    <h4>Track &amp; Grow</h4>
+                    <p>Monthly performance reports, revenue optimization, and portfolio expansion strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         TESTIMONIALS
+         ========================================= -->
+    <section class="section-padding" style="background: var(--bg-surface);">
+        <div class="container">
+            <div class="fade-in-up" style="text-align: center; margin-bottom: 60px;">
+                <span class="label-text" style="display:block; margin-bottom: 16px;">Guest Reviews</span>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.15; color: var(--text-primary);">
+                    What Our Guests Say
+                </h2>
+            </div>
+
+            <div class="testimonials-grid stagger-children" id="testimonials-grid">
+                <div class="testimonial-card stagger-item">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <p class="testimonial-text">The property was immaculate and the check-in process was seamless. Best Airbnb experience we've had.</p>
+                    <div class="testimonial-author">Sarah M.</div>
+                    <div class="testimonial-date">February 2026</div>
+                </div>
+
+                <div class="testimonial-card stagger-item">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <p class="testimonial-text">Great location, beautifully furnished, and the host communication was top-notch. Will definitely book again.</p>
+                    <div class="testimonial-author">James R.</div>
+                    <div class="testimonial-date">January 2026</div>
+                </div>
+
+                <div class="testimonial-card stagger-item">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <p class="testimonial-text">Perfect getaway spot near the beach. Everything was exactly as described. Highly recommend!</p>
+                    <div class="testimonial-author">Lisa K.</div>
+                    <div class="testimonial-date">December 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         CONTACT SECTION
+         ========================================= -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="fade-in-up" style="text-align: center; margin-bottom: 60px;">
+                <span class="label-text" style="display:block; margin-bottom: 16px;">Get In Touch</span>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.15; color: var(--text-primary);">
+                    Start Maximizing Your Property
+                </h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-form-panel">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--text-primary); margin-bottom: 32px;">
+                        Schedule a Property Assessment
+                    </h3>
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" novalidate>
+                        <!-- Honeypot - spam protection -->
+                        <input type="text" name="website_url" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-name">Name</label>
+                                <input type="text" id="form-name" name="name" placeholder="Your full name" required>
+                                <div class="form-error">Please enter your name.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email">Email</label>
+                                <input type="email" id="form-email" name="email" placeholder="your@email.com" required>
+                                <div class="form-error">Please enter a valid email address.</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-phone">Phone</label>
+                                <input type="tel" id="form-phone" name="phone" placeholder="(555) 123-4567">
+                                <div class="form-error">Please enter a valid phone number.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-address">Property Address</label>
+                                <input type="text" id="form-address" name="property_address" placeholder="123 Main St, Melbourne, FL">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-inquiry">Inquiry Type</label>
+                            <select id="form-inquiry" name="inquiry_type">
+                                <option value="Property Management">Property Management</option>
+                                <option value="Property Assessment">Property Assessment</option>
+                                <option value="Investment Inquiry">Investment Inquiry</option>
+                                <option value="General Question">General Question</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-message">Message</label>
+                            <textarea id="form-message" name="message" rows="4" placeholder="Tell us about your property and goals..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-gold" style="width: 100%; margin-top: 8px;">Submit Inquiry</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-panel">
+                    <h3>Let's Talk Property</h3>
+
+                    <div class="info-block">
+                        <span class="info-label">Location</span>
+                        <div class="info-value">Melbourne, FL</div>
+                    </div>
+
+                    <div class="info-block">
+                        <span class="info-label">Email</span>
+                        <div class="info-value" style="color: var(--gold);">info@c3properties.com</div>
+                    </div>
+
+                    <div class="info-block">
+                        <span class="info-label">Phone</span>
+                        <div class="info-value">(555) 123-4567</div>
+                    </div>
+
+                    <div class="info-block">
+                        <span class="info-label">Hours</span>
+                        <div class="info-value">
+                            Mon &ndash; Fri: 9AM &ndash; 6PM<br>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Guest support available 24/7</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);">
+                        <span class="info-label" style="margin-bottom: 12px;">Markets We Serve</span>
+                        <div class="info-value" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
+                            Melbourne, FL &middot; Orlando, FL &middot; DeLand, FL &middot; Brevard County &middot; Space Coast
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="#hero" class="nav-logo" style="margin-bottom: 8px; display: inline-flex;">
+                        <span class="nav-logo-c3">C3</span>
+                        <span class="nav-logo-properties">Properties</span>
+                    </a>
+                    <p>A Stay Starving Holdings Company</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 C3 Properties LLC. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+    <script>
+        /* =========================================
+           THEME TOGGLE
+           ========================================= */
+        var THEME_KEY = 'c3-theme';
+
+        function toggleTheme() {
+            var isLight = document.body.classList.toggle('light-mode');
+            document.getElementById('theme-icon-sun').style.display = isLight ? 'none' : 'block';
+            document.getElementById('theme-icon-moon').style.display = isLight ? 'block' : 'none';
+            localStorage.setItem(THEME_KEY, isLight ? 'light' : 'dark');
+        }
+
+        (function initTheme() {
+            var saved = localStorage.getItem(THEME_KEY);
+            if (saved === 'light') {
+                document.body.classList.add('light-mode');
+                document.getElementById('theme-icon-sun').style.display = 'none';
+                document.getElementById('theme-icon-moon').style.display = 'block';
+            }
+        })();
+
+        /* =========================================
+           MOBILE MENU
+           ========================================= */
+        function toggleMobileMenu() {
+            var hamburger = document.querySelector('.hamburger');
+            var navLinks = document.querySelector('.nav-links');
+            var isOpen = hamburger.classList.toggle('open');
+            navLinks.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            var hamburger = document.querySelector('.hamburger');
+            var navLinks = document.querySelector('.nav-links');
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.nav-link').forEach(function(link) {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        /* =========================================
+           NAV GLASSMORPHISM ON SCROLL
+           ========================================= */
+        var navElement = document.querySelector('.nav');
+
+        function handleNavScroll() {
+            if (window.scrollY > 50) {
+                navElement.classList.add('scrolled');
+            } else {
+                navElement.classList.remove('scrolled');
+            }
+        }
+
+        window.addEventListener('scroll', handleNavScroll, { passive: true });
+
+        /* =========================================
+           ACTIVE NAV LINK TRACKING
+           ========================================= */
+        var sectionElements = document.querySelectorAll('section[id]');
+        var navLinksAll = document.querySelectorAll('.nav-link[data-section]');
+
+        function updateActiveNav() {
+            var scrollPosition = window.scrollY + 200;
+
+            sectionElements.forEach(function(section) {
+                var sectionTop = section.offsetTop;
+                var sectionHeight = section.offsetHeight;
+                var sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLinksAll.forEach(function(link) {
+                        link.classList.remove('active');
+                        if (link.getAttribute('data-section') === sectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+        /* =========================================
+           HERO PARALLAX
+           ========================================= */
+        var heroImage = document.getElementById('hero-parallax-image');
+
+        function handleParallax() {
+            var scrollY = window.scrollY;
+            if (scrollY < window.innerHeight) {
+                var offset = scrollY * 0.15;
+                heroImage.style.transform = 'translateY(' + offset + 'px) scale(1.05)';
+            }
+        }
+
+        window.addEventListener('scroll', handleParallax, { passive: true });
+
+        /* =========================================
+           WORD REVEAL ANIMATION
+           ========================================= */
+        function initWordReveal() {
+            var wrapper = document.getElementById('hero-words');
+            var text = wrapper.textContent.trim();
+            var words = text.split(' ');
+
+            /* Clear using safe DOM method */
+            while (wrapper.firstChild) {
+                wrapper.removeChild(wrapper.firstChild);
+            }
+
+            words.forEach(function(word, index) {
+                var wordSpan = document.createElement('span');
+                wordSpan.className = 'word-reveal-word';
+
+                var innerSpan = document.createElement('span');
+                innerSpan.className = 'word-reveal-inner';
+                innerSpan.textContent = word;
+                innerSpan.style.transitionDelay = (0.3 + index * 0.06) + 's';
+
+                wordSpan.appendChild(innerSpan);
+                wrapper.appendChild(wordSpan);
+
+                if (index < words.length - 1) {
+                    var space = document.createElement('span');
+                    space.className = 'word-reveal-space';
+                    wrapper.appendChild(space);
+                }
+            });
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var wordElements = wrapper.querySelectorAll('.word-reveal-word');
+                        wordElements.forEach(function(wordEl) {
+                            wordEl.classList.add('visible');
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '-40px' });
+
+            observer.observe(wrapper);
+        }
+
+        /* =========================================
+           GOLD DIVIDER ANIMATION
+           ========================================= */
+        function initDividers() {
+            var dividers = document.querySelectorAll('.divider-gold');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '-40px' });
+
+            dividers.forEach(function(divider) {
+                observer.observe(divider);
+            });
+        }
+
+        /* =========================================
+           FADE IN ON SCROLL
+           ========================================= */
+        function initFadeInOnScroll() {
+            var elements = document.querySelectorAll('.fade-in-up');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '-80px' });
+
+            elements.forEach(function(element) {
+                observer.observe(element);
+            });
+        }
+
+        /* =========================================
+           STAGGER CHILDREN ANIMATION
+           ========================================= */
+        function initStaggerChildren() {
+            var containers = document.querySelectorAll('.stagger-children');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var children = entry.target.querySelectorAll('.stagger-item');
+                        children.forEach(function(child, index) {
+                            child.style.transitionDelay = (index * 0.1) + 's';
+                        });
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '-80px' });
+
+            containers.forEach(function(container) {
+                observer.observe(container);
+            });
+        }
+
+        /* =========================================
+           IMAGE REVEAL ANIMATION
+           ========================================= */
+        function initImageReveal() {
+            var images = document.querySelectorAll('.image-reveal');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '50px' });
+
+            images.forEach(function(image) {
+                observer.observe(image);
+            });
+        }
+
+        /* =========================================
+           COUNTER ANIMATION
+           ========================================= */
+        function easeOutQuint(progress) {
+            return 1 - Math.pow(1 - progress, 5);
+        }
+
+        function animateCounter(element) {
+            var target = parseFloat(element.getAttribute('data-target'));
+            var decimals = parseInt(element.getAttribute('data-decimals'), 10);
+            var duration = 2000;
+            var startTime = performance.now();
+
+            function update(currentTime) {
+                var elapsed = currentTime - startTime;
+                var progress = Math.min(elapsed / duration, 1);
+                var easedProgress = easeOutQuint(progress);
+                var currentValue = easedProgress * target;
+
+                if (decimals > 0) {
+                    element.textContent = currentValue.toFixed(decimals);
+                } else {
+                    element.textContent = Math.round(currentValue).toLocaleString();
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        function initCounters() {
+            var counters = document.querySelectorAll('.counter');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '-40px' });
+
+            counters.forEach(function(counter) {
+                observer.observe(counter);
+            });
+        }
+
+        /* =========================================
+           TIMELINE LINE ANIMATION
+           ========================================= */
+        function initTimeline() {
+            var timelineLine = document.getElementById('timeline-line');
+            if (!timelineLine) return;
+
+            var timelineSteps = document.querySelectorAll('.timeline-step');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        timelineSteps.forEach(function(step, index) {
+                            setTimeout(function() {
+                                step.classList.add('visible');
+                            }, 300 + index * 200);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '-80px' });
+
+            observer.observe(timelineLine);
+        }
+
+        /* =========================================
+           FORM HANDLER
+           ========================================= */
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function clearFormErrors() {
+            document.querySelectorAll('.form-group').forEach(function(group) {
+                group.classList.remove('error');
+            });
+        }
+
+        function showFormSuccess() {
+            var submitBtn = document.querySelector('#contactForm button[type="submit"]');
+            submitBtn.textContent = 'Inquiry Sent!';
+            submitBtn.style.background = '#2d6b3f';
+            submitBtn.style.borderColor = '#2d6b3f';
+            setTimeout(function() {
+                submitBtn.textContent = 'Submit Inquiry';
+                submitBtn.style.background = '';
+                submitBtn.style.borderColor = '';
+            }, 3000);
+        }
+
+        function showFormError() {
+            var submitBtn = document.querySelector('#contactForm button[type="submit"]');
+            submitBtn.textContent = 'Error - Try Again';
+            submitBtn.style.background = '#6b2d2d';
+            submitBtn.style.borderColor = '#6b2d2d';
+            setTimeout(function() {
+                submitBtn.textContent = 'Submit Inquiry';
+                submitBtn.style.background = '';
+                submitBtn.style.borderColor = '';
+            }, 3000);
+        }
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            clearFormErrors();
+
+            var form = event.target;
+            var formData = new FormData(form);
+            var data = Object.fromEntries(formData.entries());
+
+            /* Honeypot check */
+            if (data.website_url && data.website_url.length > 0) {
+                form.reset();
+                showFormSuccess();
+                return;
+            }
+            delete data.website_url;
+
+            /* Validation */
+            var hasError = false;
+
+            if (!data.name || data.name.trim().length < 2) {
+                document.getElementById('form-name').closest('.form-group').classList.add('error');
+                hasError = true;
+            }
+
+            if (!data.email || !validateEmail(data.email)) {
+                document.getElementById('form-email').closest('.form-group').classList.add('error');
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            var WEBHOOK_URL = 'https://your-n8n-instance.com/webhook/c3-properties-contact';
+            var submitBtn = form.querySelector('button[type="submit"]');
+            var originalText = submitBtn.textContent;
+
+            if (WEBHOOK_URL.indexOf('your-n8n-instance') !== -1) {
+                showFormSuccess();
+                form.reset();
+                return;
+            }
+
+            try {
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+
+                var response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    showFormSuccess();
+                    form.reset();
+                } else {
+                    showFormError();
+                }
+            } catch (networkError) {
+                showFormError();
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }
+        }
+
+        /* =========================================
+           INITIALIZE ALL ANIMATIONS
+           ========================================= */
+        document.addEventListener('DOMContentLoaded', function() {
+            initWordReveal();
+            initDividers();
+            initFadeInOnScroll();
+            initStaggerChildren();
+            initImageReveal();
+            initCounters();
+            initTimeline();
+        });
+    </script>
+
+</body>
+</html>
