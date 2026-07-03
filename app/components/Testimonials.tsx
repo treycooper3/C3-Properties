@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const REVIEWS = [
   {
     text: "The property was immaculate and the check-in process was seamless. Best Airbnb experience we've had.",
@@ -18,28 +20,33 @@ const REVIEWS = [
 
 export default function Testimonials() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
-      <div className="mx-auto mb-14 max-w-2xl text-center">
-        <p className="eyebrow mb-4">Guest Reviews</p>
-        <h2 className="font-serif text-4xl leading-tight font-semibold text-ink sm:text-5xl">
-          What our guests say
-        </h2>
-      </div>
+    <section className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+      <Reveal className="mx-auto mb-16 max-w-2xl text-center">
+        <p className="eyebrow mb-5">Guest Reviews</p>
+        <h2 className="heading-display">What Our Guests Say</h2>
+      </Reveal>
 
       <div className="grid gap-6 md:grid-cols-3">
-        {REVIEWS.map((review) => (
-          <figure key={review.author} className="rounded-2xl bg-sand-soft/70 p-8">
-            <div className="font-serif text-5xl leading-none text-sand" aria-hidden="true">
-              &ldquo;
-            </div>
-            <blockquote className="mt-2 leading-relaxed text-ink/80 italic">
-              {review.text}
-            </blockquote>
-            <figcaption className="mt-5 text-sm">
-              <span className="font-semibold text-ink">{review.author}</span>
-              <span className="mt-0.5 block text-stone-warm">{review.date}</span>
-            </figcaption>
-          </figure>
+        {REVIEWS.map((review, index) => (
+          <Reveal key={review.author} delay={index * 120}>
+            <figure className="card-editorial h-full bg-white p-10">
+              <div
+                className="font-serif text-6xl leading-none font-normal text-sand"
+                aria-hidden="true"
+              >
+                &ldquo;
+              </div>
+              <blockquote className="mt-3 font-serif leading-[1.7] text-ink/75 italic">
+                {review.text}
+              </blockquote>
+              <figcaption className="mt-6 text-sm">
+                <span className="font-semibold text-ink">{review.author}</span>
+                <span className="mt-1 block text-xs tracking-[0.12em] text-stone-warm uppercase">
+                  {review.date}
+                </span>
+              </figcaption>
+            </figure>
+          </Reveal>
         ))}
       </div>
     </section>

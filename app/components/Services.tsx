@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const SERVICES = [
   {
     title: "Short-Term & Long-Term Management",
@@ -27,25 +29,24 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-shell/60 py-20 lg:py-28">
+    <section id="services" className="border-y border-ink/5 bg-shell/60 py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-14 max-w-2xl text-center">
-          <p className="eyebrow mb-4">What We Offer</p>
-          <h2 className="font-serif text-4xl leading-tight font-semibold text-ink sm:text-5xl">
-            Full-service property management
-          </h2>
-        </div>
+        <Reveal className="mx-auto mb-16 max-w-2xl text-center">
+          <p className="eyebrow mb-5">What We Offer</p>
+          <h2 className="heading-display">Full-Service Property Management</h2>
+        </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-2xl border border-ink/5 bg-cream p-8 transition-shadow hover:shadow-md"
-            >
-              <div className="mb-5 h-1.5 w-10 rounded-full bg-sand" aria-hidden="true" />
-              <h3 className="font-serif text-xl font-semibold text-ink">{service.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-stone-warm">{service.body}</p>
-            </div>
+          {SERVICES.map((service, index) => (
+            <Reveal key={service.title} delay={(index % 3) * 100}>
+              <div className="card-editorial h-full bg-cream p-10">
+                <div className="hairline mb-7 w-12" aria-hidden="true" />
+                <h3 className="font-serif text-[1.35rem] leading-snug font-normal text-ink">
+                  {service.title}
+                </h3>
+                <p className="mt-3.5 text-sm leading-[1.75] text-stone-warm">{service.body}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

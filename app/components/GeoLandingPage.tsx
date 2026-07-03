@@ -37,42 +37,35 @@ export default function GeoLandingPage({ data }: { data: GeoPageData }) {
       <Nav />
       <main className="pt-[72px]">
         <section className="mx-auto max-w-4xl px-6 py-16 lg:py-20">
-          <p className="eyebrow mb-4">{data.eyebrow}</p>
-          <h1 className="font-serif text-4xl leading-tight font-semibold text-ink sm:text-5xl">
-            {data.headline}
-          </h1>
+          <p className="eyebrow mb-5">{data.eyebrow}</p>
+          <h1 className="heading-display">{data.headline}</h1>
+          <div className="hairline mt-7 w-16" aria-hidden="true" />
           {data.intro.map((paragraph) => (
             <p key={paragraph.slice(0, 40)} className="mt-6 leading-relaxed text-stone-warm">
               {paragraph}
             </p>
           ))}
           <div className="mt-9 flex flex-wrap gap-4">
-            <a
-              href="/#contact"
-              className="rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-teal-deep"
-            >
+            <a href="/#contact" className="btn-primary">
               Schedule an Assessment
             </a>
-            <a
-              href={`tel:${BUSINESS.phoneE164}`}
-              className="rounded-full border border-teal/30 px-7 py-3.5 text-sm font-semibold text-teal transition-colors hover:border-teal hover:bg-teal/5"
-            >
+            <a href={`tel:${BUSINESS.phoneE164}`} className="btn-ghost">
               Call {BUSINESS.phone}
             </a>
           </div>
         </section>
 
         <section className="mx-auto grid max-w-4xl grid-cols-3 gap-4 px-6">
-          <Image src="/photos/hero-exterior.jpg" alt="Melbourne FL vacation rental exterior at sunset" width={1920} height={1434} sizes="33vw" className="aspect-[4/3] w-full rounded-2xl object-cover" />
-          <Image src="/photos/living-room.jpg" alt="Furnished living room in a managed Melbourne rental" width={1920} height={1072} sizes="33vw" className="aspect-[4/3] w-full rounded-2xl object-cover" />
-          <Image src="/photos/bedroom-1.jpg" alt="Staged bedroom in a Space Coast short-term rental" width={1920} height={1440} sizes="33vw" className="aspect-[4/3] w-full rounded-2xl object-cover" />
+          <Image src="/photos/hero-exterior.jpg" alt="Melbourne FL vacation rental exterior at sunset" width={1920} height={1434} sizes="33vw" className="aspect-[4/3] w-full object-cover" />
+          <Image src="/photos/living-room.jpg" alt="Furnished living room in a managed Melbourne rental" width={1920} height={1072} sizes="33vw" className="aspect-[4/3] w-full object-cover" />
+          <Image src="/photos/bedroom-1.jpg" alt="Staged bedroom in a Space Coast short-term rental" width={1920} height={1440} sizes="33vw" className="aspect-[4/3] w-full object-cover" />
         </section>
 
         <section className="mx-auto max-w-4xl px-6 py-14">
           <div className="space-y-10">
             {data.sections.map((section) => (
               <div key={section.title}>
-                <h2 className="font-serif text-2xl font-semibold text-ink">{section.title}</h2>
+                <h2 className="font-serif text-2xl font-normal text-ink">{section.title}</h2>
                 <p className="mt-3 leading-relaxed text-stone-warm">{section.body}</p>
               </div>
             ))}
@@ -81,7 +74,7 @@ export default function GeoLandingPage({ data }: { data: GeoPageData }) {
 
         <section className="bg-shell/60 py-14">
           <div className="mx-auto max-w-4xl px-6">
-            <h2 className="font-serif text-3xl font-semibold text-ink">Frequently asked questions</h2>
+            <h2 className="font-serif text-3xl font-normal text-ink">Frequently asked questions</h2>
             <div className="mt-8 space-y-7">
               {data.faqs.map((faq) => (
                 <div key={faq.question}>
@@ -90,10 +83,7 @@ export default function GeoLandingPage({ data }: { data: GeoPageData }) {
                 </div>
               ))}
             </div>
-            <a
-              href="/#contact"
-              className="mt-10 inline-block rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-teal-deep"
-            >
+            <a href="/#contact" className="btn-primary mt-10">
               Get Your Free Property Assessment
             </a>
           </div>

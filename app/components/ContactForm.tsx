@@ -12,8 +12,9 @@ const INQUIRY_TYPES = [
   "General Question",
 ];
 
+// Underline-only fields, ported from the legacy site's editorial form styling.
 const inputClasses =
-  "w-full rounded-xl border border-ink/10 bg-cream px-4 py-3 text-sm text-ink placeholder:text-stone-warm/60 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20";
+  "w-full border-0 border-b border-ink/15 bg-transparent px-0 py-2.5 text-sm text-ink placeholder:text-stone-warm/50 transition-colors focus:border-teal focus:outline-none focus:ring-0";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -70,14 +71,14 @@ export default function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="form-name" className="mb-1.5 block text-xs font-semibold tracking-wider text-ink/60 uppercase">
+          <label htmlFor="form-name" className="mb-1.5 block text-[0.65rem] font-medium tracking-[0.18em] text-stone-warm uppercase">
             Name
           </label>
           <input id="form-name" type="text" name="name" placeholder="Your full name" required className={inputClasses} />
           {errors.name && <p className="mt-1.5 text-xs text-red-700">Please enter your name.</p>}
         </div>
         <div>
-          <label htmlFor="form-email" className="mb-1.5 block text-xs font-semibold tracking-wider text-ink/60 uppercase">
+          <label htmlFor="form-email" className="mb-1.5 block text-[0.65rem] font-medium tracking-[0.18em] text-stone-warm uppercase">
             Email
           </label>
           <input id="form-email" type="email" name="email" placeholder="your@email.com" required className={inputClasses} />
@@ -87,13 +88,13 @@ export default function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="form-phone" className="mb-1.5 block text-xs font-semibold tracking-wider text-ink/60 uppercase">
+          <label htmlFor="form-phone" className="mb-1.5 block text-[0.65rem] font-medium tracking-[0.18em] text-stone-warm uppercase">
             Phone
           </label>
           <input id="form-phone" type="tel" name="phone" placeholder="Your phone number" className={inputClasses} />
         </div>
         <div>
-          <label htmlFor="form-address" className="mb-1.5 block text-xs font-semibold tracking-wider text-ink/60 uppercase">
+          <label htmlFor="form-address" className="mb-1.5 block text-[0.65rem] font-medium tracking-[0.18em] text-stone-warm uppercase">
             Property Address
           </label>
           <input id="form-address" type="text" name="property_address" placeholder="123 Main St, Melbourne, FL" className={inputClasses} />
@@ -101,7 +102,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="form-inquiry" className="mb-1.5 block text-xs font-semibold tracking-wider text-ink/60 uppercase">
+        <label htmlFor="form-inquiry" className="mb-1.5 block text-[0.65rem] font-medium tracking-[0.18em] text-stone-warm uppercase">
           Inquiry Type
         </label>
         <select id="form-inquiry" name="inquiry_type" className={inputClasses} defaultValue={INQUIRY_TYPES[0]}>
@@ -112,7 +113,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="form-message" className="mb-1.5 block text-xs font-semibold tracking-wider text-ink/60 uppercase">
+        <label htmlFor="form-message" className="mb-1.5 block text-[0.65rem] font-medium tracking-[0.18em] text-stone-warm uppercase">
           Message
         </label>
         <textarea
@@ -127,7 +128,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-full bg-teal px-6 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-teal-deep disabled:opacity-60"
+        className="btn-primary w-full disabled:opacity-60"
       >
         {status === "sending" ? "Sending..." : "Submit Inquiry"}
       </button>

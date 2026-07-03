@@ -26,14 +26,14 @@ export default function Nav() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-ink/70 transition-colors hover:text-teal"
+              className="text-[0.72rem] font-medium tracking-[0.14em] text-ink/70 uppercase transition-colors hover:text-teal"
             >
               {link.label}
             </a>
           ))}
           <a
             href="/#contact"
-            className="rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-teal-deep"
+            className="border border-teal bg-teal px-5 py-2.5 text-[0.68rem] font-semibold tracking-[0.15em] text-cream uppercase transition-colors hover:border-teal-deep hover:bg-teal-deep"
           >
             Get an Assessment
           </a>
@@ -59,7 +59,7 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block py-3 text-base text-ink/80"
+              className="block py-3 text-sm font-medium tracking-[0.14em] text-ink/80 uppercase"
             >
               {link.label}
             </a>
@@ -67,7 +67,7 @@ export default function Nav() {
           <a
             href="/#contact"
             onClick={() => setOpen(false)}
-            className="mt-3 inline-block rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-cream"
+            className="mt-3 inline-block bg-teal px-5 py-2.5 text-[0.68rem] font-semibold tracking-[0.15em] text-cream uppercase"
           >
             Get an Assessment
           </a>

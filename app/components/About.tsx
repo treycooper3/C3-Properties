@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const HIGHLIGHTS = [
   {
     number: "01",
@@ -18,16 +20,17 @@ const HIGHLIGHTS = [
 
 export default function About() {
   return (
-    <section id="about" className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
-      <div className="grid gap-14 lg:grid-cols-2">
-        <div>
-          <p className="eyebrow mb-4">The C3 Difference</p>
-          <h2 className="font-serif text-4xl leading-tight font-semibold text-ink sm:text-5xl">
-            Hospitality first,
+    <section id="about" className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+      <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+        <Reveal>
+          <p className="eyebrow mb-5">The C3 Difference</p>
+          <h2 className="heading-display">
+            Real Estate,
             <br />
-            systems always
+            Reimagined
           </h2>
-          <p className="mt-7 leading-relaxed text-stone-warm">
+          <div className="hairline mt-8 w-16" aria-hidden="true" />
+          <p className="mt-8 leading-[1.8] text-stone-warm">
             C3 Properties is the real estate arm of Stay Starving Holdings.
             Backed by licensed Florida Realtors with over four years of
             experience and three years of hands-on property management, we
@@ -35,7 +38,7 @@ export default function About() {
             cash flow through dynamic pricing, automated guest communication,
             and smart home technology.
           </p>
-          <p className="mt-5 leading-relaxed text-stone-warm">
+          <p className="mt-6 leading-[1.8] text-stone-warm">
             Whether you need short-term vacation rental management or
             long-term tenant placement, our approach combines traditional
             real estate fundamentals with modern automation. Every property
@@ -43,20 +46,17 @@ export default function About() {
             automated operations, and continuous optimization for peak
             performance.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="flex flex-col gap-5">
-          {HIGHLIGHTS.map((item) => (
-            <div
-              key={item.number}
-              className="rounded-2xl border border-ink/5 bg-white p-7 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sand-soft font-serif text-sm font-semibold text-ink">
-                {item.number}
+        <div className="flex flex-col gap-6">
+          {HIGHLIGHTS.map((item, index) => (
+            <Reveal key={item.number} delay={index * 120}>
+              <div className="card-editorial bg-white p-9">
+                <p className="eyebrow mb-3 text-[0.62rem]">{item.number}</p>
+                <h3 className="font-serif text-2xl font-normal text-ink">{item.title}</h3>
+                <p className="mt-3 text-sm leading-[1.75] text-stone-warm">{item.body}</p>
               </div>
-              <h3 className="font-serif text-xl font-semibold text-ink">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-stone-warm">{item.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
