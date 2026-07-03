@@ -14,7 +14,7 @@ const INQUIRY_TYPES = [
 
 // Underline-only fields, ported from the legacy site's editorial form styling.
 const inputClasses =
-  "w-full border-0 border-b border-ink/15 bg-transparent px-0 py-2.5 text-sm text-ink placeholder:text-stone-warm/50 transition-colors focus:border-teal focus:outline-none focus:ring-0";
+  "w-full border-0 border-b border-ink/15 bg-transparent px-0 py-2.5 text-base text-ink placeholder:text-stone-warm/50 transition-colors focus:border-teal focus:outline-none focus:ring-0";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
