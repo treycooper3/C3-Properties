@@ -1,6 +1,6 @@
 # C3 Properties — Premium Property Management & Vacation Rentals | Melbourne, FL
 
-> C3 Properties LLC is a boutique short-term rental and vacation rental property management company based in Melbourne, Florida, on the Space Coast. We manage Airbnb, Vrbo, and Booking.com rentals with dynamic pricing, automated 24/7 guest communication, smart home technology, and five-star hospitality. Our flagship listing holds Airbnb Superhost status with a 4.9/5 guest rating at roughly 80% average occupancy. A Stay Starving Holdings company. Phone: (407) 394-5358. Email: info@c3properties.com.
+> C3 Properties LLC is a boutique short-term rental and vacation rental property management company based in Melbourne, Florida, on the Space Coast. We manage Airbnb, Vrbo, and Booking.com rentals with dynamic pricing, automated 24/7 guest communication, smart home technology, and five-star hospitality. Our flagship listing holds Airbnb Superhost status with a 4.9/5 guest rating at roughly 80% average occupancy. A Stay Starving Holdings company. Phone: (407) 394-5358.
 
 ## Services
 
@@ -28,16 +28,15 @@ Melbourne FL, Melbourne Beach FL, Satellite Beach FL, Palm Bay FL, Viera FL, the
 
 ## Pages
 
-- Homepage: https://c3properties.com
-- Property Management in Melbourne, FL: https://c3properties.com/property-management-melbourne-fl
-- Airbnb Management on the Space Coast: https://c3properties.com/airbnb-management-space-coast
-- Vacation Rental near Melbourne Beach: https://c3properties.com/vacation-rental-melbourne-beach
-- Short-Term Rental Management in Brevard County: https://c3properties.com/short-term-rental-management-brevard-county
+- Homepage: https://c3properties.vercel.app
+- Property Management in Melbourne, FL: https://c3properties.vercel.app/property-management-melbourne-fl
+- Airbnb Management on the Space Coast: https://c3properties.vercel.app/airbnb-management-space-coast
+- Vacation Rental near Melbourne Beach: https://c3properties.vercel.app/vacation-rental-melbourne-beach
+- Short-Term Rental Management in Brevard County: https://c3properties.vercel.app/short-term-rental-management-brevard-county
 
 ## Contact
 
 - Phone: (407) 394-5358
-- Email: info@c3properties.com
 - Location: Melbourne, Florida
-- Full homepage (markdown): https://c3properties.com/index.md
+- Full homepage (markdown): https://c3properties.vercel.app/index.md
 - Parent company: Stay Starving Holdings LLC

@@ -79,7 +79,7 @@ const BLOCKS: LegalBlock[] = [
   { h2: "13. Entire Agreement" },
   { p: "These Terms, together with our Privacy Policy and any executed Property Management Agreement, constitute the entire agreement between you and C3 Properties LLC regarding the subject matter herein." },
   { h2: "14. Contact Information" },
-  { p: "For questions about these Terms, please contact us: C3 Properties LLC, Melbourne, Florida — info@c3properties.com — (407) 394-5358. A Stay Starving Holdings Company." },
+  { p: "For questions about these Terms, please contact us: C3 Properties LLC, Melbourne, Florida — (407) 394-5358. A Stay Starving Holdings Company." },
   { note: "Legal Notice: These Terms and Conditions are designed to comply with Florida law and industry standards for short-term vacation rental management. For specific legal advice, please consult with a qualified Florida attorney." },
 ];
 

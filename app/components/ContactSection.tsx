@@ -43,14 +43,6 @@ export default function ContactSection() {
                 </dd>
               </div>
               <div>
-                <dt className="eyebrow text-[0.62rem]">Email</dt>
-                <dd className="mt-1.5">
-                  <a href={`mailto:${BUSINESS.email}`} className="text-ink/85 hover:text-teal">
-                    {BUSINESS.email}
-                  </a>
-                </dd>
-              </div>
-              <div>
                 <dt className="eyebrow text-[0.62rem]">Hours</dt>
                 <dd className="mt-1.5 text-ink/85">
                   Mon &ndash; Fri: 9AM &ndash; 6PM

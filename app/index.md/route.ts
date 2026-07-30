@@ -2,9 +2,8 @@ const HOMEPAGE_MARKDOWN = `# C3 Properties — Premium Property Management & Vac
 
 > C3 Properties LLC is a boutique short-term rental and vacation rental property management company based in Melbourne, Florida, on the Space Coast. Dynamic pricing, automated 24/7 guest communication, smart home technology, and five-star hospitality. Airbnb Superhost-managed with a 4.9/5 guest rating. A Stay Starving Holdings company.
 
-**Website**: [https://c3properties.com](https://c3properties.com)
+**Website**: [https://c3properties.vercel.app](https://c3properties.vercel.app)
 **Phone**: (407) 394-5358
-**Email**: info@c3properties.com
 **Book the featured property**: [https://airbnb.com/h/melbournebeachstay](https://airbnb.com/h/melbournebeachstay)
 
 ---
@@ -75,17 +74,16 @@ Melbourne, FL · Melbourne Beach · Satellite Beach · Palm Bay · Viera · Spac
 
 ## More Pages
 
-- [Property Management in Melbourne, FL](https://c3properties.com/property-management-melbourne-fl)
-- [Airbnb Management on the Space Coast](https://c3properties.com/airbnb-management-space-coast)
-- [Vacation Rental near Melbourne Beach](https://c3properties.com/vacation-rental-melbourne-beach)
-- [Short-Term Rental Management in Brevard County](https://c3properties.com/short-term-rental-management-brevard-county)
+- [Property Management in Melbourne, FL](https://c3properties.vercel.app/property-management-melbourne-fl)
+- [Airbnb Management on the Space Coast](https://c3properties.vercel.app/airbnb-management-space-coast)
+- [Vacation Rental near Melbourne Beach](https://c3properties.vercel.app/vacation-rental-melbourne-beach)
+- [Short-Term Rental Management in Brevard County](https://c3properties.vercel.app/short-term-rental-management-brevard-county)
 
 ## Contact
 
 - **Phone**: (407) 394-5358
-- **Email**: info@c3properties.com
 - **Location**: Melbourne, Florida (Mon–Fri 9AM–6PM; guest support 24/7)
-- **LLM context file**: [https://c3properties.com/llms.txt](https://c3properties.com/llms.txt)
+- **LLM context file**: [https://c3properties.vercel.app/llms.txt](https://c3properties.vercel.app/llms.txt)
 
 ---
 

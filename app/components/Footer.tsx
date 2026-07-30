@@ -20,11 +20,6 @@ export default function Footer() {
                 {BUSINESS.phone}
               </a>
             </p>
-            <p>
-              <a href={`mailto:${BUSINESS.email}`} className="hover:text-teal">
-                {BUSINESS.email}
-              </a>
-            </p>
           </div>
 
           <div className="flex gap-6 text-sm text-stone-warm">

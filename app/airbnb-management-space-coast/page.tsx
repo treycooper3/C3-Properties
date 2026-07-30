@@ -57,7 +57,7 @@ const DATA: GeoPageData = {
     {
       question: "How do I get started?",
       answer:
-        "Request a free property assessment through the contact form at c3properties.com or call (407) 394-5358. We will analyze your property's earning potential and send a clear proposal.",
+        "Request a free property assessment through our website contact form or call (407) 394-5358. We will analyze your property's earning potential and send a clear proposal.",
     },
   ],
 };

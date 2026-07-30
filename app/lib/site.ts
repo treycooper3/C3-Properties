@@ -1,11 +1,13 @@
-export const SITE_URL = "https://c3properties.com";
+// Charles's call (Jul 30 2026): c3properties.vercel.app IS the production domain
+// (c3properties.com is parked/for-sale by a third party — do not reference it).
+export const SITE_URL = "https://c3properties.vercel.app";
 
 export const BUSINESS = {
   name: "C3 Properties",
   legalName: "C3 Properties LLC",
   phone: "(407) 394-5358",
   phoneE164: "+14073945358",
-  email: "info@c3properties.com",
+  // no public email — info@c3properties.com doesn't exist; contact = phone + form
   city: "Melbourne",
   state: "FL",
   country: "US",
@@ -37,7 +39,6 @@ export function localBusinessSchema(): Record<string, unknown> {
       "Boutique short-term rental and vacation rental property management on Florida's Space Coast. C3 Properties manages Airbnb and vacation rental properties in Melbourne, FL with dynamic pricing, automated guest communication, and five-star hospitality.",
     url: SITE_URL,
     telephone: BUSINESS.phoneE164,
-    email: BUSINESS.email,
     image: `${SITE_URL}/og.jpg`,
     priceRange: BUSINESS.priceRange,
     address: {

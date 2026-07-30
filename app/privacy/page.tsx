@@ -61,7 +61,7 @@ const BLOCKS: LegalBlock[] = [
   { h2: "10. Changes to This Privacy Policy" },
   { p: "We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date. Continued use of our website after changes constitutes acceptance of the updated policy." },
   { h2: "11. Contact Us" },
-  { p: "If you have questions about this Privacy Policy or our privacy practices, please contact us: C3 Properties LLC, Melbourne, Florida — info@c3properties.com — (407) 394-5358. A Stay Starving Holdings Company." },
+  { p: "If you have questions about this Privacy Policy or our privacy practices, please contact us: C3 Properties LLC, Melbourne, Florida — (407) 394-5358. A Stay Starving Holdings Company." },
   { note: "Legal Notice: This Privacy Policy is provided for informational purposes and is designed to comply with Florida law and industry standards. For specific legal advice, please consult with a qualified attorney." },
 ];
 
